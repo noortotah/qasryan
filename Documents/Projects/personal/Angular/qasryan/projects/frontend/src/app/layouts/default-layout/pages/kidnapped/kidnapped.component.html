@@ -1,0 +1,111 @@
+<div class="container pt-5">
+  <h1 class="h3 mb-3 text-light">الملف الشخصي</h1>
+
+  <div class="row">
+    <div class="col-md-8 col-xl-9">
+      <div class="card">
+        <div class="card-header">
+          <h5 class=" mb-0 mt-2 h1">قصة الناشط  {{kidnapped.name}}</h5>
+        </div>
+        <div class="card-body h-100">
+          <div class="d-flex align-items-start">
+            <div class="flex-grow-1">
+              {{ kidnapped.story}}
+            </div>
+          </div>
+
+
+          <hr />
+          <div class="d-flex align-items-start">
+            <div class="card-header">
+          <h5 class="card-title mb-0">الصور المرفقة بالقضية </h5>
+        </div>
+            <div class="flex-grow-1">
+
+              <div class="album">
+                <!-- <div class="container"> -->
+
+                  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <div class="col">
+                      <div class="card shadow-sm">
+                        <img src="../../../../../assets/images/avatars/avatar-5.jpg" alt="" class="card-img-top">
+
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card shadow-sm">
+                        <img src="../../../../../assets/images/avatars/avatar-5.jpg" alt="" class="card-img-top">
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card shadow-sm">
+                        <img src="../../../../../assets/images/avatars/avatar-5.jpg" alt="" class="card-img-top">
+                      </div>
+                    </div>
+
+
+
+                  </div>
+                <!-- </div> -->
+              </div>
+
+
+            </div>
+          </div>
+
+          <hr />
+          <div class="d-flex align-items-start">
+            <div class="card-header">
+          <h5 class="card-title mb-0">الفيديوهات المرفقة بالقضية </h5>
+        </div>
+            <div class="flex-grow-1">
+
+            </div>
+          </div>
+
+          <hr />
+          <div class="d-flex align-items-start">
+            <div class="card-header">
+          <h5 class="card-title mb-0">ملفات مرفقة بالقضية </h5>
+        </div>
+            <div class="flex-grow-1">
+
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-xl-3">
+      <div class="card mb-3">
+        <div class="card-header">
+          <h5 class="card-title">التفاصيل الشخصية</h5>
+        </div>
+        <div class="card-body text-center">
+          <img
+            src="../../../../../assets/images/avatars/avatar-5.jpg"
+            alt="Christina Mason"
+            class="img-fluid rounded-circle mb-2"
+            width="128"
+            height="128"
+          />
+          <h5 class="card-title mb-0">{{kidnapped.name}}</h5>
+          <div class="text-muted mb-2">ناشط {{kidnapped.activity_type}}</div>
+        </div>
+        <hr class="my-0" />
+        <div class="card-body">
+          <div>
+            <a class="btn btn-gray-dark btn-block d-block mb-2" href="#"
+              >تواصل معنا بخصوص هذا الشخص</a
+            >
+            <a class="btn btn-middle-dark btn-block d-block mb-2" href="#">شارك الصفحة</a>
+            <a href="#" class="btn btn-primary d-block btn-block"
+              >وقع على عريضة تطالب السلطات بالافراج عنه</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

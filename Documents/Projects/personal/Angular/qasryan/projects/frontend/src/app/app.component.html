@@ -1,0 +1,53 @@
+<!-- <div class="h-100 d-flex justify-content-center align-items-center">
+  <div class="container">
+    <div class="row">
+      <div class="col form-group">
+        <label for="">Num1</label>
+        <input type="text"
+          class="form-control" ngModel #num1 aria-describedby="helpId" placeholder="">
+        </div>
+      <div class="col form-group">
+        <label for="">Num2</label>
+        <input type="text"
+          class="form-control" ngModel #num2 aria-describedby="helpId" placeholder="">
+       </div>
+      </div>
+    <div class="row mt-5">
+      <div class="col bg-light form-control">
+        {{ num1.value * num2.value}}
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <a class="btn btn-success" (click)="getImages()"> get Images </a>
+
+      <div class="row card-deck" *ngIf="images.length; index as i">
+        <div class="card col-2" *ngFor="let image of images">
+          <img class="card-img-top" src="{{image}}" alt="">
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group">
+        <label for="" class="text-light">User Name</label>
+        <input type="text"
+          class="form-control" ngModel #userName aria-describedby="helpId" placeholder="">
+
+        <div class="text-ligth" *ngIf="userName.value.length >= 3">
+          <h1 class="text-light">{{userName.value}}</h1>
+        </div>
+        <div class="text-ligth" *ngIf="userName.value.length < 3">
+          <h1 class="text-light">can't enter name less than 3</h1>
+        </div>
+        </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+
+<router-outlet></router-outlet>

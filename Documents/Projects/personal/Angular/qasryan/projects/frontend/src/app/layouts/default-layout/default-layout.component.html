@@ -1,0 +1,13 @@
+<app-default-navbar></app-default-navbar>
+
+<div  style="min-height: 800px" [ngClass]="{'h-100' : !isLanding() }">
+  <div [@routerTransition]="getState(o)" class="h-100 justify-content-center align-items-center">
+
+      <router-outlet #o="outlet"></router-outlet>
+
+
+  </div>
+</div>
+
+<!-- <router-outlet></router-outlet> -->
+<app-default-footer></app-default-footer>

@@ -1,0 +1,242 @@
+<div class="background-cover">
+  <div class="container">
+    <!-- Display Banner -->
+    <div class="row text-center p-6">
+      <h2 class="text-primary display-5">موقع تتبع المفقودين العرب</h2>
+      <p class="text-muted pt-3" style="font-size: 1rem">
+        لأسباب لا نعرفها, نفقد بسبب حكوماتنا أصدقاء و معارف ورفقاء طريق ..
+      </p>
+    </div>
+
+    <!-- Country Select -->
+    <div class="row mb-3">
+      <div class="col-6 mx-auto">
+        <div class="form-group">
+          <label class="pb-2 text-light h4">اختار الدولة</label>
+          <select
+            class="form-select form-select-lg mb-3"
+            name="selectedCoutnry"
+            #selectedCountry
+            (change)="selectCountry(selectedCountry.value)"
+          >
+            <option value="">كل الدول</option>
+            <option
+              *ngFor="let country of countries; let i = index"
+              [value]="country.id"
+            >
+              {{ country.nameAr }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <hr class="mb-5" />
+    <!-- Geo Chart / Boxes -->
+    <div class="row">
+      <div class="col-xl-6 col-xxl-5 d-flex">
+        <div class="w-100">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title mb-4">المفقودين</h5>
+                  <h1 class="mt-1 mb-3">{{ kidnappedPeopleForSelectedCountry.all.length }}</h1>
+                  <div class="mb-1">
+                    <span class="text-danger">
+                      <i
+                        class="align-middle text-danger ms-1"
+                        data-feather="users"
+                      ></i>
+                    </span>
+                    <span class="text-muted"> حالات اختفاء تم التبليغ عنها</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title mb-4">العائدون</h5>
+                  <h1 class="mt-1 mb-3">{{ kidnappedPeopleForSelectedCountry.safe.length }}</h1>
+                  <div class="mb-1">
+                    <span class="text-success">
+                      <i
+                        class="align-middle text-success ms-1"
+                        data-feather="user"
+                      ></i>
+                    </span>
+                    <span class="text-muted">حالات عادوا بسلام</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h1 class="mt-1 mb-3">تواصل معنا</h1>
+                  <p class="">
+                    نحن نسعى لجمع المعلومات عن جميع المفقودين من الناشطين
+                    السياسيين والاجتماعيين في الوطن العربي
+                  </p>
+                  <p class="">
+                    اذا كان لديك أي معلومات أو تحديثات للبيانات المنشورة على
+                    موقعنا, نتمنى منك التواصل معنا من خلال نموذج التواصل الخاص بنا
+                  </p>
+
+                  <div class="mb-1">
+                    <button class="btn btn-info">نموذج التواصل</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Geo Chart -->
+      <div class="col-xl-6 col-xxl-7 pt-sm-5 pt-md-0">
+        <div class="card flex-fill w-100">
+          <div class="card-header">
+            <h5 class="card-title mb-0">التوزيع الجغرافي</h5>
+          </div>
+          <div class="card-body py-3">
+            <div class="chart chart-lg">
+              <google-chart
+                class="mx-auto"
+                title="Geo Chart"
+                type="GeoChart"
+                [data]="geoChart.data"
+                [options]="geoChart.options"
+              >
+              </google-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <div class="row pt-4">
+      <div class="col-xl-6">
+        <div class="card flex-fill w-100">
+          <div class="card-header">
+            <h5 class="card-title mb-0">التوزيع الجندري</h5>
+          </div>
+          <div class="card-body py-3">
+            <div class="chart chart-sm">
+              <google-chart
+                class="mx-auto"
+                title=""
+                type="ColumnChart"
+                [columns]="cloumnChart.columns"
+                [data]="cloumnChart.data"
+                [options]="cloumnChart.options"
+              >
+              </google-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-6">
+        <div class="card flex-fill w-100">
+          <div class="card-header">
+            <h5 class="card-title mb-0">التوزيع العمري</h5>
+          </div>
+          <div class="card-body py-3">
+            <div class="chart chart-sm">
+              <google-chart
+                class="mx-auto"
+                title="Pie Chart"
+                type="PieChart"
+                [data]="pieChart.data"
+                [options]="pieChart.options"
+              >
+              </google-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why we created this website -->
+    <br />
+    <hr />
+    <div class="row pt-4">
+      <h1 class="mt-1 mb-5 text-light">لماذا قمنا بإنشاء هذا الموقع...</h1>
+      <div class="col-sm-6 col-md-3">
+        <div class="card flex-fill w-100">
+          <div class="card-body py-3">
+            <div
+              class="chart chart-sm text-dark text-center d-flex justify-content-center pt-4"
+            >
+              <i
+                class="align-middle text-primary feather-lg feather-absolute"
+                data-feather="volume-2"
+              ></i>
+              <p class="pt-4 align-self-end">
+  يعمل هذا الموقع على توصيل أصوات النشطاء السياسيين والحقوقيين و الاجتماعيين في جميع الدول العربية إلى جميع الشعوب العربية.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <div class="card flex-fill w-100">
+          <div class="card-body py-3">
+            <div
+              class="chart chart-sm text-center d-flex justify-content-center pt-4"
+            >
+              <i
+                class="align-middle text-middle-dark feather-lg feather-absolute"
+                data-feather="server"
+              ></i>
+              <p class="pt-4 align-self-end">
+                ليس لدينا في الوطن العربي أي مرجع رسمي حقيقي يمكن الاعتماد عليه في معرفة أعدادهم ونشاطاتهم المهمة.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <div class="card flex-fill w-100">
+          <div class="card-body py-3">
+            <div
+              class="chart chart-sm text-center d-flex justify-content-center pt-4"
+            >
+              <i
+                class="align-middle text-primary feather-lg feather-absolute"
+                data-feather="video"
+              ></i>
+              <p class="pt-4 align-self-end">
+                أصدقائنا الموقوفين والمختفين والمحتجزين ليسوا أرقاماً في سجلات حكومية بل قصص حية وتسجيلها واجب علينا.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <div class="card flex-fill w-100">
+          <div class="card-body py-3">
+            <div
+              class="chart chart-sm text-center d-flex justify-content-center pt-4"
+            >
+              <i
+                class="align-middle text-middle-dark feather-lg feather-absolute"
+                data-feather="trash-2"
+              ></i>
+              <p class="pt-4 align-self-end">
+                انشأنا هذا الموقع لأننا لم نرد أن ننسى أن لنا أحباب وأصدقاء عملوا على تحسين واقعنا السياسي والاجتماعي.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

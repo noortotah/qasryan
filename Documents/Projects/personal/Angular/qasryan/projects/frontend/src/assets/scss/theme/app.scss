@@ -1,0 +1,183 @@
+/*!
+ * AdminKit v2.0.1 (https://adminkit.io/)
+ * Copyright 2020 Paul Laros
+ * Copyright 2020 AdminKit
+ * Licensed under MIT (https://github.com/adminkit/adminkit/blob/master/LICENSE)
+ */
+
+// Variables
+@import "1-variables/fonts";
+@import "1-variables/variables";
+
+// Bootstrap
+@import "bootstrap/scss/bootstrap";
+
+// Theme mixins
+@import "2-mixins/button";
+@import "2-mixins/modal";
+@import "2-mixins/switch";
+
+// Theme components
+@import "3-components/accordion";
+@import "3-components/alert";
+@import "3-components/avatar";
+@import "3-components/buttons";
+@import "3-components/card";
+@import "3-components/chart";
+@import "3-components/content";
+@import "3-components/dropdown";
+@import "3-components/feather";
+@import "3-components/footer";
+@import "3-components/forms";
+@import "3-components/hamburger";
+@import "3-components/list-group";
+@import "3-components/main";
+@import "3-components/modal";
+@import "3-components/navbar";
+@import "3-components/progress";
+@import "3-components/reboot";
+@import "3-components/sidebar";
+@import "3-components/sizing";
+@import "3-components/tables";
+@import "3-components/type";
+@import "3-components/wrapper";
+
+// Theme utilities
+@import "4-utilities/background";
+@import "4-utilities/borders";
+@import "4-utilities/cursors";
+@import "4-utilities/overflow";
+
+// 3rd party plugins
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
+@import "@fortawesome/fontawesome-free/scss/regular";
+@import "@fortawesome/fontawesome-free/scss/solid";
+// @import "~jsvectormap/dist/css/jsvectormap";
+// @import "~simplebar/dist/simplebar";
+// @import "~flatpickr/dist/flatpickr";
+
+// 3rd party plugin styles
+// @import "5-vendor/simplebar";
+// @import "5-vendor/flatpickr";
+
+body {
+  line-height: 2;
+}
+
+app-default-layout .background-cover {
+  background-image: linear-gradient(0deg, rgba(52, 52, 52, 0.9), rgba(52, 52, 52, 0.5)), url('../../images/landing-background.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.sidebar {
+  direction : rtl;
+  &.collapsed {
+    margin-right: -$sidebar-width;
+    margin-left: 0px;
+  }
+}
+
+.sidebar-nav {
+  padding-right: 0;
+}
+
+.sidebar-link,
+a.sidebar-link {
+  i,
+  svg {
+    margin-left: .75rem;
+  }
+}
+
+.navbar-expand {
+  justify-content: flex-end;
+}
+
+.sidebar-toggle {
+  margin-left: 1rem;
+}
+
+// .navbar-expand .navbar-nav {
+//   flex-direction: row-reverse;
+// }
+
+.navbar-align {
+  margin-left: 0px;
+  margin-right: auto;
+}
+.navbar-nav {
+  direction: rtl;
+  .nav-link > span {
+    padding: 0px 5px;
+  }
+}
+
+.content {
+  direction: rtl;
+}
+.breadcrumb-item + .breadcrumb-item {
+  padding-left: 0.5rem;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  float: right;
+  padding-left: 0.5rem;
+  padding-right: 0.15rem;
+  content: var(--bs-breadcrumb-divider, "/");
+}
+
+footer.footer {
+  direction: rtl;
+}
+
+.list-inline {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.list-inline-item:not(:last-child) {
+  margin-left: 0.5rem;
+}
+
+.me-auto {
+  margin-left: auto !important;
+}
+
+hr {
+  color: $gray-400;
+}
+
+.feather-lg {
+  height: 60px;
+  width: 60px;
+}
+
+.feather-absolute {
+  position: absolute;
+}
+
+.chart-lg {
+  min-height: 402px;
+}
+
+.form-label {
+  color: $gray-600;
+}
+
+.input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu), .input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n+3) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+  margin-right: -1px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.card-registration {
+  box-shadow: 0 0 0.875rem 0 rgba(33, 37, 41, 0.5);
+
+  .form-control {
+    padding: 0.825rem 2rem;
+  }
+}
+
